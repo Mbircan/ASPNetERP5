@@ -1,0 +1,39 @@
+﻿@model MVCFundamentals.Models.Product
+@{
+	ViewBag.Title = "Detail";
+}
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Ürün Adı</th>
+					<th>Birim Başına Miktar</th>
+					<th>Birim Fiyatı</th>
+					<th>Stok</th>
+					<th>Siparişte</th>
+					<th>Satışta mı?</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>@Model.ProductName</td>
+					<td>@Model.QuantityPerUnit</td>
+					<td>@Model.UnitPrice</td>
+					<td>@Model.UnitsInStock</td>
+					<td>@Model.UnitsOnOrder</td>
+					@if (Model.Discontinued)
+					{
+						<td>Hayır</td>
+					}
+					else
+					{
+						<td>Evet</td>
+					}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

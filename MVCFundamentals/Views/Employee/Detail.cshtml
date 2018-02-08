@@ -1,0 +1,39 @@
+﻿@model MVCFundamentals.Models.Employee
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>İsim</th>
+					<th>Soyisim</th>
+					<th>Ünvan</th>
+					<th>Nezaket Ünvanı</th>
+					<th>Doğum Tarihi</th>
+					<th>İşe Alınma Tarihi</th>
+					<th>Adres</th>
+					<th>Şehir</th>
+					<th>Ülke</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>@Model.FirstName</td>
+					<td>@Model.LastName</td>
+					<td>@Model.Title</td>
+					<td>@Model.TitleOfCourtesy</td>
+					<td>@Model.BirthDate</td>
+					<td>@($"{Model.HireDate:D}")</td>
+					<td>@Model.Address</td>
+					<td>@Model.City</td>
+					<td>@Model.Country</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

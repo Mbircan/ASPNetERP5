@@ -1,0 +1,31 @@
+﻿@model MVCFundamentals.Models.Product
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<h2>@Model.ProductName ürün detayı</h2>
+<h4>Kategorisi : @Model.Category.CategoryName</h4>
+<h4>Fiyatı : @Model.UnitPrice</h4>
+<h4>Durum : @(Model.Discontinued ? "Satışta Değil" : "Satışta")</h4>
+@{
+    var siparisler = Model.Order_Details.ToList();
+}
+<ul class="list-group">
+    @foreach (var item in siparisler)
+    {
+        <li class="list-group-item">
+            <p class="text-danger">@item.Order.OrderID</p>
+            <ul class="list-group">
+                <li class="list-group-item">Müşteri: @item.Order.Customer.CompanyName</li>
+                <li class="list-group-item">Çalışan : @item.Order.Employee.FirstName @item.Order.Employee.LastName</li>
+                <li class="list-group-item">Kargo Firması : @item.Order.Shipper.CompanyName</li>
+                <li class="list-group-item">@($"{item.Order.OrderDate:D}")</li>
+                <li class="list-group-item">Toplam Adet: @item.Quantity</li>
+                <li class="list-group-item">Birim Fiyat: @($"{item.UnitPrice:c2}")</li>
+                <li class="list-group-item">İskonto: %@(item.Discount*100)</li>
+                <li class="list-group-item">Toplam: @($"{item.UnitPrice*item.Quantity*(1-(decimal)item.Discount):c2}")</li>
+            </ul>
+        </li>
+    }
+</ul>
+
