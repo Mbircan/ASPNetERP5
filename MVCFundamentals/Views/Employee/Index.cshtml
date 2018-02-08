@@ -29,7 +29,17 @@
                         <td>@Model[i].FirstName</td>
                         <td>@Model[i].LastName</td>
                         <td>@Model[i].Title</td>
-                        @*<td>@Model[i].Employee1.FirstName</td>*@
+                        @if (Model[i].Employee1 != null)
+                        {
+                            <td>
+                                @Model[i].Employee1.FirstName @Model[i].Employee1.LastName
+                                <small>@Model[i].Title</small>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>-</td>
+                        }
                         <td>
                             <a class="btn btn-info btn-block" href="@Url.Action("Detail","Employee",new {id=Model[i].EmployeeID })" target="_blank">Detay</a>
                             <a class="btn btn-warning btn-block" href="@Url.Action("Update","Employee",new {id=Model[i].EmployeeID })" target="_blank">Düzenle</a>

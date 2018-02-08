@@ -70,6 +70,7 @@ namespace MVCFundamentals.Controllers
             ViewBag.calisanlarlist = calisanlarlist;
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Add(Employee model)
@@ -99,10 +100,13 @@ namespace MVCFundamentals.Controllers
         }
 
         [HttpGet]
-        public ActionResult Update(int? id)
+        public async Task<ActionResult> Update(int? id)
         {
             try
             {
+                var db = new MyNorthwindEntities();
+                
+                var model =await db.Employees.FindAsync(id);
                 var calisanlarlist = new List<SelectListItem>()
             {
                 new SelectListItem()
@@ -111,8 +115,9 @@ namespace MVCFundamentals.Controllers
                 Value="null"
                 }
             };
-                var db = new MyNorthwindEntities();
+                db = new MyNorthwindEntities();
                 db.Employees
+                    .Where(x=>x.EmployeeID!=model.EmployeeID)
                     .OrderBy(x => x.FirstName)
                     .ThenBy(x => x.LastName)
                     .ToList()
@@ -124,8 +129,6 @@ namespace MVCFundamentals.Controllers
                         });
                     });
                 ViewBag.calisanlarlist = calisanlarlist;
-                db = new MyNorthwindEntities();
-                var model = db.Employees.Find(id);
                 if (model == null)
                     return RedirectToAction("Index", "Employee");
                 return View(model);
@@ -135,14 +138,15 @@ namespace MVCFundamentals.Controllers
                 return RedirectToAction("Index", "Employee");
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(Employee model)
+        public async Task<ActionResult> Update(Employee model)
         {
             try
             {
                 var db = new MyNorthwindEntities();
-                var employee = db.Employees.Find(model.EmployeeID);
+                var employee =await db.Employees.FindAsync(model.EmployeeID);
                 if (employee == null)
                     return RedirectToAction("Index", "Employee");
                 employee.FirstName = model.FirstName;
@@ -152,7 +156,8 @@ namespace MVCFundamentals.Controllers
                 employee.Country = model.Country;
                 employee.LastName = model.LastName;
                 employee.HireDate = model.HireDate;
-                db.SaveChanges();
+                employee.ReportsTo = model.ReportsTo;
+                await db.SaveChangesAsync();
                 return RedirectToAction("Update", "Employee", new { id = employee.EmployeeID });
             }
             catch (Exception ex)
@@ -163,16 +168,16 @@ namespace MVCFundamentals.Controllers
         }
 
         [HttpGet]
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             try
             {
                 var db = new MyNorthwindEntities();
-                var silinecek = db.Employees.Find(id);
+                var silinecek = await db.Employees.FindAsync(id);
                 if (silinecek == null)
                     return RedirectToAction("Index", "Employee");
                 db.Employees.Remove(silinecek);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 ViewBag.sonuc = $"{silinecek.FirstName} {silinecek.LastName} isimli çalışan başarı ile silinmiştir.";
                 return View();
             }
