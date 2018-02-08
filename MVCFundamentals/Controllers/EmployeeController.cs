@@ -183,7 +183,7 @@ namespace MVCFundamentals.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.sonuc = $"Çalışan silme işleminde bir hata oluştu.<br/>{ex.Message}";
+                ViewBag.sonuc = $"Çalışan silme işleminde bir hata oluştu.<br>{ex.Message}";
                 return View();
             }
         }
