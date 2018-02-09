@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVCFundamentals.Models;
 using MVCFundamentals.ViewModels;
-
+using System.Threading.Tasks;
 namespace MVCFundamentals.Controllers
 {
     public class ProductController : Controller
@@ -69,6 +69,33 @@ namespace MVCFundamentals.Controllers
                 ModelState.AddModelError("", ex.Message);
                 return View(model);
             }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Update(int? id)
+        {
+            var db = new MyNorthwindEntities();
+            var model = new ProductViewModel()
+            {
+                Categories = db.Categories.ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Update(ProductViewModel model)
+        {
+            var db = new MyNorthwindEntities();
+            var product = await db.Products.FindAsync(model.Product.ProductID);
+            if (product == null)
+                return RedirectToAction("Index", "Product");
+            product.ProductName = model.Product.ProductName;
+            product.CategoryID = model.Product.CategoryID;
+            product.UnitPrice = model.Product.UnitPrice;
+            product.UnitsInStock = model.Product.UnitsInStock;
+            product.Discontinued = model.Product.Discontinued;
+            await db.SaveChangesAsync();
+            return RedirectToAction("Update","Product",new {id=model.Product.ProductID });
         }
     }
 }
