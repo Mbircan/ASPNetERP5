@@ -1,0 +1,16 @@
+﻿@using LayoutKullanimi.Models
+@model List<LayoutKullanimi.Models.Product>
+<div class="col-md-12 footer">
+    Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+    @Model.Count
+</div>
+@{ 
+    var db = new MyNorthwindEntities();
+    var kategoriler = db.Categories.ToList();
+}
+<ul>
+    @foreach (var item in kategoriler)
+    {
+        <li>@item.CategoryName</li>
+    }
+</ul>

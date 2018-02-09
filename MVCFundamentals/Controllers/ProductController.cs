@@ -99,5 +99,25 @@ namespace MVCFundamentals.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Update","Product",new {id=model.Product.ProductID });
         }
+
+        public async Task<ActionResult> Delete(int? id)
+        {
+            try
+            {
+                var db = new MyNorthwindEntities();
+                var silinecek = await db.Products.FindAsync(id);
+                if (silinecek == null)
+                    return RedirectToAction("Index", "Product");
+                db.Products.Remove(silinecek);
+                await db.SaveChangesAsync();
+                ViewBag.sonuc = $"{silinecek.ProductName} isimli ürün başarı ile silinmiştir.";
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.sonuc = $"Ürün silme işleminde bir hata oluştu.<br>{ex.Message}";
+                return View();
+            }
+        }
     }
 }

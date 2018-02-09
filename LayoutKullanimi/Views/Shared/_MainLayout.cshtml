@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("stil",false)
+</head>
+<body>
+    <div class="row">
+        @{
+            Html.RenderAction("HeaderPartialResult", "Home");
+        }
+    </div>
+    <div class="container middle">
+        @*Kodlar buraya gelcek*@
+        @RenderBody() @*Sadece ve sadece 1 tane RenderBody olmalı.*@
+        @*Kodlar buraya gelcek*@
+    </div>
+    <div class="row">
+       <div class="col-md-12 footer">
+           Ut fusce varius nisl ac ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor, luctus placerat.
+       </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    @RenderSection("script", false)
+</body>
+</html>
