@@ -75,9 +75,11 @@ namespace MVCFundamentals.Controllers
         public async Task<ActionResult> Update(int? id)
         {
             var db = new MyNorthwindEntities();
+            var product = await db.Products.FindAsync(id);
             var model = new ProductViewModel()
             {
-                Categories = db.Categories.ToList()
+                Categories = db.Categories.ToList(),
+                Product = product
             };
             return View(model);
         }
