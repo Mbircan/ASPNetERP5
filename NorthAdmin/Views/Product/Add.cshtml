@@ -1,0 +1,59 @@
+﻿@model NorthAdmin.Models.Product
+@{
+	ViewBag.Title = "Add";
+	Layout = "~/Views/shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Ürün Ekle</h2>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="text-danger">@Html.ValidationSummary()</div>
+		@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-horizontal" }))
+	{
+		@Html.AntiForgeryToken()
+		<div class="form-group">
+			@Html.Label("Ürün Adı", new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-10">
+				@Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", placeholder = "Ürün Adı" })
+			</div>
+		</div>
+		<div class="form-group">
+			@Html.Label("Kategori",new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-10">
+				@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.kategorilist, new { @class = "form-control" })
+			</div>
+		</div>
+		<div class="form-group">
+			@Html.Label("Tedarikçi", new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-10">
+				@Html.DropDownListFor(x => x.SupplierID, (List<SelectListItem>)ViewBag.tedarikcilist, new { @class = "form-control" })
+			</div>
+		</div>
+		<div class="form-group">
+			@Html.Label("Fiyat", new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-10">
+				@Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control", placeholder = "Birim Fiyat" })
+			</div>
+		</div>
+		<div class="form-group">
+			@Html.Label("Stok", new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-10">
+				@Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control", placeholder = "Stok" })
+			</div>
+		</div>
+		<div class="form-group">
+			@Html.Label("Satıştan Çıkart", new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-1">
+				@Html.CheckBoxFor(x => x.Discontinued, new { @class = "form-control" })
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-info">Ürün Ekle</button>
+				<button type="reset" class="btn btn-warning">Temizle</button>
+			</div>
+		</div>
+}
+	</div>
+</div>
+

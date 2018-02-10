@@ -11,16 +11,24 @@
         <!-- /input-group -->
     </li>
     <li>
-        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+	    <a href="@Url.Action("Index","Category")"><i class="fa fa-apple fa-fw"></i> Kategoriler<span class="fa arrow"></span></a>
+	    <ul class="nav nav-second-level">
+		    <li>
+			    <a href="@Url.Action("Index","Category")">Kategorileri Görüntüle</a>
+		    </li>
+		    <li>
+			    <a href="@Url.Action("Add","Category")">Yeni Kategori EKle</a>
+		    </li>
+	    </ul>
     </li>
     <li>
-        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+        <a href="#"><i class="fa fa-android fa-fw"></i> Ürünler<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
-                <a href="flot.html">Flot Charts</a>
+                <a href="@Url.Action("Index","Product")">Ürünleri Görüntüle</a>
             </li>
             <li>
-                <a href="morris.html">Morris.js Charts</a>
+                <a href="@Url.Action("Add","Product")">Yeni Ürün Ekle</a>
             </li>
         </ul>
         <!-- /.nav-second-level -->
