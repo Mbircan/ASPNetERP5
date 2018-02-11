@@ -4,17 +4,20 @@
 	Layout = "~/Views/shared/_AdminLayout.cshtml";
 }
 
-<h2>@Model.CompanyName<small> Kargo Şirketi Detayı</small></h2>
+
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-offset-1 col-md-10">
+		<h2>@Model.CompanyName<small> Kargo Şirketi Detayı</small></h2>
+	</div>
+	<div class="col-md-offset-1 col-md-10">
 		<h3><b>Şirket Adı:</b></h3>
 		<h4>@Model.CompanyName</h4>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-offset-1 col-md-10">
 		<h3><b>Telefon:</b></h3>
 		<h4>@Model.Phone</h4>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-offset-1 col-md-10">
 		<h3><b>Taşınan Toplam Sipariş:</b></h3>
 		<h4>@ViewBag.orders</h4>
 	</div>

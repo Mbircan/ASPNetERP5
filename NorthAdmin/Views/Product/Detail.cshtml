@@ -3,42 +3,45 @@
 	ViewBag.Title = "Detail";
 	Layout = "~/Views/shared/_AdminLayout.cshtml";
 }
-<h2>@Model.ProductName <small>Ürün Detayı</small></h2>
+
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-offset-1 col-md-10">
+		<h2>@Model.ProductName <small>Ürün Detayı</small></h2>
+	</div>
+	<div class="col-md-offset-1 col-md-10">
 		<h4><b>Ürün Adı:</b></h4>
 		<h4>@Model.ProductName</h4>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-offset-1 col-md-10">
 		<h4><b>Kategori:</b></h4>
 		<h4>@Model.Category.CategoryName</h4>
 	</div>
-		<div class="col-md-12">
-			<h4><b>Birim:</b></h4>
-			<h4>@Model.QuantityPerUnit</h4>
-		</div>
-		<div class="col-md-12">
-			<h4><b>Fiyat:</b></h4>
-			<h4>@Model.UnitPrice</h4>
-		</div>
-		<div class="col-md-12">
-			<h4><b>Stok:</b></h4>
-			<h4>@Model.UnitsInStock</h4>
-		</div>
-		<div class="col-md-12">
-			<h4><b>Siparişte:</b></h4>
-			<h4>@Model.UnitsOnOrder</h4>
-		</div>
-		<div class="col-md-12">
-			<h4><b>Satışta mı?:</b></h4>
-			@if (Model.Discontinued)
-			{
-				<h4>Hayır</h4>
-			}
-			else
-			{
-				<h4>Evet</h4>
-			}
-		</div>
+	<div class="col-md-offset-1 col-md-10">
+		<h4><b>Birim:</b></h4>
+		<h4>@Model.QuantityPerUnit</h4>
 	</div>
+	<div class="col-md-offset-1 col-md-10">
+		<h4><b>Fiyat:</b></h4>
+		<h4>@Model.UnitPrice</h4>
+	</div>
+	<div class="col-md-offset-1 col-md-10">
+		<h4><b>Stok:</b></h4>
+		<h4>@Model.UnitsInStock</h4>
+	</div>
+	<div class="col-md-offset-1 col-md-10">
+		<h4><b>Siparişte:</b></h4>
+		<h4>@Model.UnitsOnOrder</h4>
+	</div>
+	<div class="col-md-offset-1 col-md-10">
+		<h4><b>Satışta mı?:</b></h4>
+		@if (Model.Discontinued)
+		{
+			<h4>Hayır</h4>
+		}
+		else
+		{
+			<h4>Evet</h4>
+		}
+	</div>
+</div>
 

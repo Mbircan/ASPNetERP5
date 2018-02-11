@@ -4,12 +4,14 @@
     Layout = "~/Views/shared/_AdminLayout.cshtml";
 }
 
-<h2>@ViewBag.OrderID <small>Nolu Sipariş Detayı</small></h2>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/r-2.2.1/sc-1.4.4/datatables.min.css" />
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/r-2.2.1/sc-1.4.4/datatables.min.js"></script>
 
 <div class="row">
+	<div class="col-md-offset-1 col-md-10">
+		<h2>@ViewBag.OrderID <small>Nolu Sipariş Detayı</small></h2>
+	</div>
 	<div class="col-md-10 col-md-offset-1">
 		<table id="datatable" class="table table-hover table-striped table-bordered">
 			<thead>
@@ -33,7 +35,7 @@
 					<td>@($"{Model[i].UnitPrice}")</td>
 					<td>@Model[i].Quantity</td>
 					<td>@($"{Model[i].Discount:c2}")</td>
-					<td>@($"{Model[i].Quantity*Model[i].UnitPrice-(decimal)Model[i].Discount:c2}")</td>
+					<td>@($"{Model[i].Quantity * Model[i].UnitPrice - (decimal) Model[i].Discount:c2}")</td>
 				</tr>
 			}
 			</tbody>

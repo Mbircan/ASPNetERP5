@@ -4,9 +4,9 @@
     ViewBag.Title = "Add";
     Layout = "~/Views/shared/_AdminLayout.cshtml";
 }
-<h2>Yeni Müşteri Ekle</h2>
+<h2>Yeni Tedarikçi Ekle</h2>
 <div class="row">
-	<div class="col-md-offset-2 col-md-8">
+	<div class="col-md-offset-1 col-md-10">
 		<div class="text-danger">@Html.ValidationSummary()</div>
 		@using (Html.BeginForm("Add", "Supplier", FormMethod.Post, new { @class = "form-horizontal" }))
 	{
