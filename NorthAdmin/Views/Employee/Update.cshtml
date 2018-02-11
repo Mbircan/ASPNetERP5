@@ -1,0 +1,72 @@
+﻿@model NorthAdmin.Models.Employee
+@{
+	ViewBag.Title = "Update";
+	Layout = "~/Views/shared/_AdminLayout.cshtml";
+}
+
+<h2>Düzenleme Ekranı</h2>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="text-danger">@Html.ValidationSummary()</div>
+		@using (Html.BeginForm("Update", "Employee", FormMethod.Post, new { @class = "form-horizontal" }))
+		{
+			@Html.AntiForgeryToken()
+			@Html.HiddenFor(x=>x.EmployeeID)
+			<div class="form-group">
+				@Html.Label("Ad", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "İsim" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.Label("Soyad", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Soyisim" })
+				</div>
+			</div>
+            <div class="form-group">
+                @Html.Label("Amiri", new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(x => x.ReportsTo, (List<SelectListItem>)ViewBag.calisanlarlist, new { @class = "form-control" })
+                </div>
+            </div>
+			<div class="form-group">
+				@Html.Label("Doğum Tarihi", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.BirthDate, new { @class = "form-control", placeholder = "Doğum Tarihi" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.Label("İşe Alınma Tarihi", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.HireDate, new { @class = "form-control", placeholder = "İşe Alınma Tarihi" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.Label("Adres", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.Address, new { @class = "form-control", placeholder = "Adres" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.Label("Şehir", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.City, new { @class = "form-control", placeholder = "Şehir" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.Label("Ülke", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.Country, new { @class = "form-control", placeholder = "Ülke" })
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-info">Güncelle</button>
+					<button type="reset" class="btn btn-warning">Temizle</button>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+

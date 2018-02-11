@@ -1,8 +1,34 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/shared/_AdminLayout.cshtml";
 }
-
-<h2>Sa abüsünüy</h2>
+@section north
+{
+	<style>
+		#north {
+			font-size: 25px;
+			background-color: aliceblue;
+		}
+		#north section {
+			height: auto;
+			width: auto;
+		}
+	</style>
+}
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<h1>Northwind Database Nedir ? Nasıl Kurulur ?</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2" id="north">
+		<section>
+			Bu yazımda Northwind Database ve kurulumundan bahsedeceğim. Northwind Database SQL‘i yeni öğrenenlerin, SQL sorgularında kendini geliştirmek isteyenlerin veya kritik sorgularını denemek isteyenlerin kullandığı hazır veritabanıdır. Northwind Database Microsoft’un sağlamış olduğu ücretsiz içerisi dolu bir database örneğidir.
+		</section>
+		<section>
+			Bu veritabanını SQL Server’ımıza nasıl ekleyeceğimiz konusuna gelirsek, eğer database dosyalarına sahip değilseniz <a href="https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=23654" target="_blank">buraya</a> tıklayarak setup dosyasını indirip kurmanız gerekir.
+		</section>		
+	</div>
+</div>
 

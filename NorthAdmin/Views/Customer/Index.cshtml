@@ -1,0 +1,46 @@
+﻿@model List<NorthAdmin.Models.Customer>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/shared/_AdminLayout.cshtml";
+}
+
+<h2>Müşteriler</h2>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="text-danger">@Html.ValidationSummary()</div>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Şirket</th>
+					<th>Yetkili Kişi</th>
+					<th>Ünvan</th>
+					<th>Ülke</th>
+					<th>Düzenle</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (int i = 0; i < Model.Count; i++)
+				{
+					<tr>
+						<td>@(i + 1)</td>
+						<td>@Model[i].CompanyName</td>
+						<td>@Model[i].ContactName</td>
+						<td>@Model[i].ContactTitle</td>
+						<td>@Model[i].Country</td>
+						<td>
+							<a class="btn btn-info btn-block" href="@Url.Action("Detail", "Customer", new {id = Model[i].CustomerID})">Detay</a>
+							<a class="btn btn-warning btn-block" href="@Url.Action("Update", "Customer", new {id = Model[i].CustomerID})">Düzenle</a>
+							@if (Model[i].Orders.Count == 0)
+							{
+								<a class="btn btn-danger btn-block" href="@Url.Action("Delete", "Customer", new {id = Model[i].CustomerID})">Sil</a>
+							}
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+

@@ -1,109 +1,98 @@
 ﻿<ul class="nav" id="side-menu">
-    <li class="sidebar-search">
-        <div class="input-group custom-search-form">
-            <input type="text" class="form-control" placeholder="Ara...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    <i class="fa fa-search"></i>
-                </button>
-            </span>
-        </div>
-        <!-- /input-group -->
-    </li>
-    <li>
-	    <a href="@Url.Action("Index","Category")"><i class="fa fa-apple fa-fw"></i> Kategoriler<span class="fa arrow"></span></a>
-	    <ul class="nav nav-second-level">
-		    <li>
-			    <a href="@Url.Action("Index","Category")">Kategorileri Görüntüle</a>
-		    </li>
-		    <li>
-			    <a href="@Url.Action("Add","Category")">Yeni Kategori EKle</a>
-		    </li>
-	    </ul>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-android fa-fw"></i> Ürünler<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li>
-                <a href="@Url.Action("Index","Product")">Ürünleri Görüntüle</a>
-            </li>
-            <li>
-                <a href="@Url.Action("Add","Product")">Yeni Ürün Ekle</a>
-            </li>
-        </ul>
-        <!-- /.nav-second-level -->
-    </li>
-    <li>
-        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-    </li>
-    <li>
-        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li>
-                <a href="panels-wells.html">Panels and Wells</a>
-            </li>
-            <li>
-                <a href="buttons.html">Buttons</a>
-            </li>
-            <li>
-                <a href="notifications.html">Notifications</a>
-            </li>
-            <li>
-                <a href="typography.html">Typography</a>
-            </li>
-            <li>
-                <a href="icons.html"> Icons</a>
-            </li>
-            <li>
-                <a href="grid.html">Grid</a>
-            </li>
-        </ul>
-        <!-- /.nav-second-level -->
-    </li>
-    <li>
-        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li>
-                <a href="#">Second Level Item</a>
-            </li>
-            <li>
-                <a href="#">Second Level Item</a>
-            </li>
-            <li>
-                <a href="#">Third Level <span class="fa arrow"></span></a>
-                <ul class="nav nav-third-level">
-                    <li>
-                        <a href="#">Third Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Third Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Third Level Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Third Level Item</a>
-                    </li>
-                </ul>
-                <!-- /.nav-third-level -->
-            </li>
-        </ul>
-        <!-- /.nav-second-level -->
-    </li>
-    <li class="active">
-        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li>
-                <a class="active" href="blank.html">Blank Page</a>
-            </li>
-            <li>
-                <a href="login.html">Login Page</a>
-            </li>
-        </ul>
-        <!-- /.nav-second-level -->
-    </li>
+	<li class="sidebar-search">
+		<div class="input-group custom-search-form">
+			<input type="text" class="form-control" placeholder="Ara...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">
+					<i class="fa fa-search"></i>
+				</button>
+			</span>
+		</div>
+		<!-- /input-group -->
+	</li>
+	<li>
+		<a href="@Url.Action("Index","Category")"><i class="fa fa-apple fa-fw"></i> Kategoriler<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Category")">Kategorileri Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Add","Category")">Yeni Kategori EKle</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#"><i class="fa fa-android fa-fw"></i> Ürünler<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Product")">Ürünleri Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Add","Product")">Yeni Ürün Ekle</a>
+			</li>
+		</ul>
+		<!-- /.nav-second-level -->
+	</li>
+	<li>
+		<a href="@Url.Action("Index","Employee")"><i class="fa fa-chrome fa-fw"></i> Çalışanlar<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Employee")">Çalışanları Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Add","Employee")">Yeni Çalışan Ekle</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="@Url.Action("Index","Customer")"><i class="fa fa-opera fa-fw"></i> Müşteriler<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Customer")">Müşterileri Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Add","Customer")">Yeni Müşteri Ekle</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="@Url.Action("Index","Supplier")"><i class="fa fa-internet-explorer fa-fw"></i> Tedarikçiler<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Supplier")">Tedarikçileri Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Add","Supplier")">Yeni Tedarikçi Ekle</a>
+			</li>
+		</ul>
+
+		<!-- /.nav-second-level -->
+	</li>
+	<li>
+		<a href="@Url.Action("Index","Shipper")"><i class="fa fa-firefox fa-fw"></i> Kargo Şirketleri<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Shipper")">Kargo Şirketlerini Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Add","Shipper")">Yeni Kargo Şirketi Ekle</a>
+			</li>
+		</ul>
+
+		<!-- /.nav-second-level -->
+	</li>
+	<li>
+		<a href="@Url.Action("Index","Order")"><i class="fa fa-bank fa-fw"></i> Siparişler<span class="fa arrow"></span></a>
+		<ul class="nav nav-second-level">
+			<li>
+				<a href="@Url.Action("Index","Order")"> Siparişleri Görüntüle</a>
+			</li>
+			<li>
+				<a href="@Url.Action("Index","Order")"> Sipariş Ver</a>
+			</li>
+		</ul>
+
+		<!-- /.nav-second-level -->
+	</li>
 </ul>
 

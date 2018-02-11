@@ -1,0 +1,36 @@
+﻿@model NorthAdmin.Models.Shipper
+@{
+	ViewBag.Title = "Update";
+	Layout = "~/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="text-danger">@Html.ValidationSummary()</div>
+		@using (Html.BeginForm("Update", "Shipper", FormMethod.Post, new { @class = "form-horizontal" }))
+		{
+			@Html.AntiForgeryToken()
+			@Html.HiddenFor(x=>x.ShipperID)
+			<div class="form-group">
+				@Html.Label("Şirket", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", placeholder = "Şirket Adı" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.Label("Telefon", new { @class = "col-sm-2 control-label" })
+				<div class="col-sm-10">
+					@Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Telefon" })
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-info">Güüncelle</button>
+					<button type="reset" class="btn btn-warning">Temizle</button>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+

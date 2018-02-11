@@ -1,0 +1,67 @@
+﻿@model NorthAdmin.Models.Employee
+@{
+	ViewBag.Title = "Detail";
+	Layout = "~/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-12">
+		<h3><b>Ad:</b></h3>
+		<h4>@Model.FirstName</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>Soyad:</b></h3>
+		<h4>@Model.LastName</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>Doğum Tarihi:</b></h3>
+		<h4>@($"{Model.BirthDate:D}")</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>Görev:</b></h3>
+		<h4>@Model.Title</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>İşe Alınma Tarihi:</b></h3>
+		<h4>@($"{Model.HireDate:D}")</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>Şehir:</b></h3>
+		<h4>@Model.City</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>Bölge:</b></h3>
+		<h4>@Model.Region</h4>
+	</div>
+	<div class="col-md-12">
+		<h3><b>Ülke:</b></h3>
+		<h4>@Model.Country</h4>
+	</div>	
+	@if (Model.Employee1 != null)
+	{
+		<div class="col-md-12">
+			<h4>
+				Amiri: @(Model.Employee1?.FirstName + " " + Model.Employee1?.LastName)
+				<small>@Model.Employee1.Title</small>
+			</h4>
+		</div>		
+	}
+	@if (Model.Employees1.Count > 0)
+	{
+		<div class="col-md-12">
+			<h4>
+				Altındakiler:
+				<ul>
+					@foreach (var alt in Model.Employees1)
+					{
+						<li>
+							@alt.FirstName @alt.LastName
+							<small>@alt.Title</small>
+						</li>
+					}
+				</ul>
+			</h4>
+		</div>
+	}
+</div>
+

@@ -1,0 +1,65 @@
+﻿@model List<NorthAdmin.Models.Order_Detail>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewBag.OrderID <small>Nolu Sipariş Detayı</small></h2>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/r-2.2.1/sc-1.4.4/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/r-2.2.1/sc-1.4.4/datatables.min.js"></script>
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<table id="datatable" class="table table-hover table-striped table-bordered">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Sipariş No</th>
+				<th>Ürün Adı</th>
+				<th>Birim Fiyat</th>
+				<th>Adet</th>
+				<th>İndirim</th>
+				<th>Tutar</th>
+			</tr>
+			</thead>
+			<tbody>
+			@for (int i = 0; i < Model.Count; i++)
+			{
+				<tr>
+					<td>@(i + 1)</td>
+					<td>@Model[i].OrderID</td>
+					<td>@($"{Model[i].Product.ProductName}")</td>
+					<td>@($"{Model[i].UnitPrice}")</td>
+					<td>@Model[i].Quantity</td>
+					<td>@($"{Model[i].Discount:c2}")</td>
+					<td>@($"{Model[i].Quantity*Model[i].UnitPrice-(decimal)Model[i].Discount:c2}")</td>
+				</tr>
+			}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+	$("#datatable").DataTable({
+		responsive: true,
+		language: {
+			"lengthMenu": "Bir sayfada _MENU_ Kayıt Görüntüle",
+			"zeroRecords": "Aradığınız kriterde kayıt bulunamadı...",
+			"info": "Gösterilen Sayfa _PAGE_ / _PAGES_",
+			"infoEmpty": "Kayıt Bulunmamaktadır",
+			"infoFiltered": "(Toplam _MAX_ kayıt aranıyor)",
+			"search": "Arama",
+			"Previous": "Önceki",
+			"Next": "Sonraki",
+			"paginate": {
+				"first": "ilk",
+				"last": "son",
+				"next": "Sonraki",
+				"previous": "Önceki"
+			}
+		}
+	});
+</script>
+
