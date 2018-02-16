@@ -46,9 +46,20 @@ app.controller("SiparisCtrl",
 
             }
         }
-
         $scope.sepettemizle=function(){
-            $scope.sepet = null;
-            sepethesapla();
+            $scope.sepet = [];
+            $scope.toplam = 0;
+        }
+        $scope.sepetionayla=function() {
+            $http({
+                url: '../Siparis/Urunler',
+                method:'POST',
+                data: $scope.sepet
+            }).then(function (response) {
+                console.log(response);
+                alert(response.data.message)
+                if (response.data.success)
+                    sepettemizle();
+            })
         }
 });
