@@ -62,4 +62,15 @@ app.controller("SiparisCtrl",
                     sepettemizle();
             })
         }
+        $scope.git=function(sayfa) {
+            $http({
+                url: '../Siparis/Urunler?sayfa='+sayfa,
+                method: 'GET'
+            }).then(function (response) {
+                if (response.data.success)
+                    $scope.urunler = response.data.data;
+                else
+                    alert(response.data.message);
+            })
+        }
 });

@@ -10,13 +10,17 @@ namespace SepetUygulamasi.Controllers
     public class SiparisController : Controller
     {
         // GET: Siparis
+        private static int mevcutSayfa = 1;
+        private static int sayfadaGosterilecek = 20;
         public ActionResult Index()
         {
+            ViewBag.toplam = Math.Ceiling(new MyNorthwindEntities().Products.Count() / (sayfadaGosterilecek * 1.0));
             return View();
         }
         [HttpGet]
-        public JsonResult Urunler()
+        public JsonResult Urunler(int sayfa=1)
         {
+            mevcutSayfa = sayfa;
             try
             {
                 var db = new MyNorthwindEntities();
@@ -27,7 +31,7 @@ namespace SepetUygulamasi.Controllers
                     x.Categories.CategoryName,
                     x.UnitPrice,
                     x.UnitsInStock
-                }).ToList();
+                }).ToList().Skip((mevcutSayfa - 1) * sayfadaGosterilecek).Take(sayfadaGosterilecek);
                 return Json(new ResponseModel()
                 {
                     data = urunler,

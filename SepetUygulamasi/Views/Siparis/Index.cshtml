@@ -17,7 +17,7 @@
 <body>
     <div class="row" ng-controller="SiparisCtrl">
         <div class="col-sm-6">
-            <input type="text" ng-model="ara" class="form-control"/>
+            <input type="text" ng-model="ara" class="form-control" />
             <div>
                 <table class="table table-striped table-hover">
                     <thead>
@@ -40,10 +40,14 @@
                             <td><input type="button" class="btn btn-success btn-block" value="Sepete Ekle" ng-click="sepeteekle(item)" /></td>
                         </tr>
                     </tbody>
-                </table>                
+                </table>
+               @for (int i = 1; i <= ViewBag.toplam; i++)
+               {
+                <input type="button" value="@i" ng-click="git(@i)" />
+               }
             </div>
         </div>
-        <div class="col-sm-6" >
+        <div class="col-sm-6">
             <div ng-if="sepet.length!=0">
                 <ul style="border:2px solid black;border-radius:20px">
                     <li ng-repeat="item in sepet" ng-class="{'text-success':$even,'text-danger':$odd}">
@@ -51,8 +55,8 @@
                     </li>
                     <li>Toplam : <strong>{{toplam}}₺</strong></li>
                 </ul>
-                <input type="button" class="btn btn-warning btn-lg" value="Sepeti Onayla" ng-click="sepetionayla()"/>
-                <input type="button" class="btn btn-danger btn-lg" value="Sepeti Temizle" ng-click="sepettemizle()"/>
+                <input type="button" class="btn btn-warning btn-lg" value="Sepeti Onayla" ng-click="sepetionayla()" />
+                <input type="button" class="btn btn-danger btn-lg" value="Sepeti Temizle" ng-click="sepettemizle()" />
             </div>
         </div>
     </div>
