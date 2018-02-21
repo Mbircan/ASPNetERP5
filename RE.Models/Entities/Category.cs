@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace RE.Models.Entities
 {
     using System;
@@ -13,14 +15,16 @@ namespace RE.Models.Entities
         {
             Products = new HashSet<Product>();
         }
-
+        [Display(Name = "Kategori ID")]
         public int CategoryID { get; set; }
 
         [Required]
         [StringLength(15)]
+        [Display(Name ="Kategori Adý")]
         public string CategoryName { get; set; }
 
         [Column(TypeName = "ntext")]
+        [Display(Name = "Açýklama")]
         public string Description { get; set; }
 
         [Column(TypeName = "image")]

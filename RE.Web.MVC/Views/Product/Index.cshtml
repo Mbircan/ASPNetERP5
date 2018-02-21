@@ -1,0 +1,65 @@
+﻿@model List<RE.Models.Entities.Product>
+@{
+    ViewBag.Title = "Index";
+}
+@section datalink{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/r-2.2.1/sc-1.4.4/datatables.min.css" />
+}
+<h2>Ürünler <small>Toplam : @Model.Count</small></h2>
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <table class="table table-striped table-hover" id="datatable">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Kategorisi</th>
+                <th>Ürün Adı</th>
+                <th>Birim Fiyat</th>
+                <th>Stok</th>
+                <th>Durum</th>
+                <th>Düzenle</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].Category.CategoryName</td>
+                    <td>@Model[i].ProductName</td>
+                    <td>@($"{Model[i].UnitPrice:c2}")</td>
+                    <td>@Model[i].UnitsInStock</td>
+                    <td>@Html.Raw(Model[i].Discontinued ? "<span class='text-danger'>Satışta Değil</span>":"<span class='text-success'>Satışta</span>")</td>
+                    <td>
+                        <a class="btn btn-info btn-block" href="@Url.Action("Edit","Product",new {id=Model[i].ProductID })">Düzenle</a>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section datajs{
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/af-2.2.2/b-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/r-2.2.1/sc-1.4.4/datatables.min.js"></script>
+    <script>
+        $("#datatable").DataTable({
+            responsive: true,
+            language: {
+                "lengthMenu": "Bir sayfada _MENU_ Kayıt Görüntüle",
+                "zeroRecords": "Aradığınız kriterde kayıt bulunamadı...",
+                "info": "Gösterilen Sayfa _PAGE_ / _PAGES_",
+                "infoEmpty": "Kayıt Bulunmamaktadır",
+                "infoFiltered": "(Toplam _MAX_ kayıt aranıyor)",
+                "search": "Arama",
+                "Previous": "Önceki",
+                "Next": "Sonraki",
+                "paginate": {
+                    "first": "ilk",
+                    "last": "son",
+                    "next": "Sonraki",
+                    "previous": "Önceki"
+                }
+            }
+        });
+    </script>
+
+}

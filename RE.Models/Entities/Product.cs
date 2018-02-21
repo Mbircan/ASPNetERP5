@@ -1,3 +1,5 @@
+using System.Web;
+
 namespace RE.Models.Entities
 {
     using System;
@@ -18,6 +20,7 @@ namespace RE.Models.Entities
 
         [Required]
         [StringLength(40)]
+        [Display(Name = "Ürün Adý")]
         public string ProductName { get; set; }
 
         public int? SupplierID { get; set; }
@@ -28,15 +31,20 @@ namespace RE.Models.Entities
         public string QuantityPerUnit { get; set; }
 
         [Column(TypeName = "money")]
+        [Display(Name = "Fiyat")]
         public decimal? UnitPrice { get; set; }
-
+        [Display(Name = "Stok")]
         public short? UnitsInStock { get; set; }
 
         public short? UnitsOnOrder { get; set; }
 
         public short? ReorderLevel { get; set; }
-
+        [Display(Name = "Satýþta Deðil")]
         public bool Discontinued { get; set; }
+        [Display(Name = "Fotoðraf")]
+        public string FotoUrl { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase Foto { get; set; }
 
         public virtual Category Category { get; set; }
 
