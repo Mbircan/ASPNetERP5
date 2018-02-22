@@ -35,7 +35,7 @@ namespace RE.Web.MVC.Controllers
                 throw ex;
             }
         }
-        [HttpPost]
+        [HttpPost,ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Category model)
         {
