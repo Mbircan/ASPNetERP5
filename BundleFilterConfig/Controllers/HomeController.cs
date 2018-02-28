@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BundleFilterConfig.Services;
 
-namespace Kimlik.Web.MVC.Controllers
+namespace BundleFilterConfig.Controllers
 {
-    [Authorize(Roles = "Admin,User")]
     public class HomeController : Controller
     {
         // GET: Home
-        [AllowAnonymous]
+        [HandleError(View = "Error")]
+        [ExceptionHandlerFilter]
         public ActionResult Index()
         {
             return View();

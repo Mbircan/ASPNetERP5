@@ -34,6 +34,14 @@ namespace Kimlik.Web.MVC
                     Description = "Kullanıcı"
                 });
             }
+            if (!roleManager.RoleExists("Passive"))
+            {
+                roleManager.Create(new ApplicationRole()
+                {
+                    Name = "Passive",
+                    Description = "Aktivasyon Yapmamış Kullanıcı Rolü"
+                });
+            }
         }
     }
 }

@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kimlik.DAL", "Kimlik.DAL\Ki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kimlik.BLL", "Kimlik.BLL\Kimlik.BLL.csproj", "{E6068930-6266-4DBE-8821-CB9F0A0E4CFD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 Bundle and Filter Config", "06 Bundle and Filter Config", "{9015531A-E8F0-4C25-97C3-3CF2AD6CD585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BundleFilterConfig", "BundleFilterConfig\BundleFilterConfig.csproj", "{BAE5311F-DB43-4E14-B2F7-1B7C4D9DAF21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,10 @@ Global
 		{E6068930-6266-4DBE-8821-CB9F0A0E4CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6068930-6266-4DBE-8821-CB9F0A0E4CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6068930-6266-4DBE-8821-CB9F0A0E4CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE5311F-DB43-4E14-B2F7-1B7C4D9DAF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE5311F-DB43-4E14-B2F7-1B7C4D9DAF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE5311F-DB43-4E14-B2F7-1B7C4D9DAF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE5311F-DB43-4E14-B2F7-1B7C4D9DAF21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,5 +123,6 @@ Global
 		{EE3152B2-05CA-4E82-9127-83BEF6524EFF} = {A2445FFF-17C6-4A9B-8946-AFC906CAB8C9}
 		{98F7D789-C038-4805-AD2A-A63BBCA1EF84} = {A2445FFF-17C6-4A9B-8946-AFC906CAB8C9}
 		{E6068930-6266-4DBE-8821-CB9F0A0E4CFD} = {A2445FFF-17C6-4A9B-8946-AFC906CAB8C9}
+		{BAE5311F-DB43-4E14-B2F7-1B7C4D9DAF21} = {9015531A-E8F0-4C25-97C3-3CF2AD6CD585}
 	EndGlobalSection
 EndGlobal
